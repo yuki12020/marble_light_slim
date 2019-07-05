@@ -35,12 +35,16 @@
 					<div class="col-md-3 col-sm-6 col-padding animate-box" data-animate-effect="fadeInLeft">
 						<div class="blog-entry">
 							<a href="http://192.168.179.6/marble_boot/marble/view/details.php" class="blog-img"><img src="images/img-2.jpg" class="img-responsive" alt="Free HTML5 Bootstrap Template by FreeHTML5.co"></a>
-							<div class="desc">
-								<h3><a href="#">details.phpテストてすと手素都</a></h3>
+							<!--<div class="desc">-->
+								<!--<h3><a href="#">details.phpテストてすと手素都</a></h3>
 								<span><small>details.php</small></span>
-								<p>details.phpの読み込む＿テスト</p>
-								<a href="http://192.168.179.6/marble_boot/marble/view/details.php" class="lead"><i class="btn btn-primary btn-learn">read more</i></a>
-							</div>
+								<p>details.phpの読み込む＿テスト</p>-->
+								<a href="http://192.168.179.6/marble_boot/marble/view/details.php" 
+								class="lead">
+								<i class="btn btn-primary btn-learn">read more</i>
+								</a>
+								<p>test</p>
+							-<!--</div>-->
 						</div>
 					</div>
 					<!--box_end-->
