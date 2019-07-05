@@ -17,7 +17,10 @@
 			<?php $obj = new index(); //クラスのインスタンス作成?>
 			
 			<?php  include dirname(__FILE__) ."./../include/nav_above.php"; ?>			
-			<?php $target = $_GET[target]; ?>		
+			<?php $target = $_GET[target]; ?>	
+
+			<?php  include dirname(__FILE__) ."./../include/oshirase.php"; ?>			
+			
 			 
 			<?php include dirname(__FILE__) ."./../include/pageing.php"; //ページング読み込み ?> 
 			

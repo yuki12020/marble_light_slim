@@ -50,7 +50,17 @@ class index{
 	$info= $db->query($sql);
 	$results= $info->fetchAll(PDO::FETCH_ASSOC);
 	return $results;		
-	}	
+	}
+	
+	public function select_info(){
+	global $db; //includeの＄ｄｂ変数取得
+	$sql .="select * from perl";
+	$sql .=" where true ";;
+	$sql .=" order by id desc";
+	$info= $db->query($sql);
+	$results= $info->fetchAll(PDO::FETCH_ASSOC);
+	return $results;		
+	}
 	
 	
 }

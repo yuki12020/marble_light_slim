@@ -72,7 +72,7 @@
 
 <div class="fh5co-more-contact">
 	<div class="fh5co-narrow-content" style= "padding:30px;">
-		<a href="http://192.168.179.6/marble_boot/marble/view/"><img src="images/notimage.jpg" style="width: 100%; height: 150px; " alt="画像の説明文"></a>
+		<a href="http://192.168.179.6/marble_boot/marble/view/"><img src="images/orlora.jpg" style="width: 100%; height: 150px; " alt="画像の説明文"></a>
 	</div>
 </div>
 
