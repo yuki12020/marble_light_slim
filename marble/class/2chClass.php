@@ -15,6 +15,14 @@ class index{
 	return $results;		
 	}
 	
+	public function select_detail($id){
+	global $db; //includeの＄ｄｂ変数取得
+	$sql="select * from channel where id=".$id;
+	$info= $db->query($sql);
+	$results= $info->fetchAll(PDO::FETCH_ASSOC);
+	return $results;		
+	}
+	
 	
 }
 ?>
