@@ -78,13 +78,19 @@ my $block;
 my $title;
 my $sql;
 
+my $thid;
+
 #2ch　タイトル抜き取り \nが改行コード
 $res =~/<h1 class="title">(.*?)\n<\/h1>/;
 $title=$1;
 print $title;
 
+$res =~/<input type="hidden" name="key" value="(.*?)">/;
+$thid = $1;
+print $thid;
+
 my $i;
-#for($i=0;$i<10;$i++){
+#for($i=0;$i<10;$i++){}
 while($res =~/<div class="post" id="(.*?)" data-date="(.*?)" data-userid="(.*?)" data-id="(.*?)">/gi)
 {
 	$id = $1;
@@ -92,37 +98,28 @@ while($res =~/<div class="post" id="(.*?)" data-date="(.*?)" data-userid="(.*?)"
 	while($res =~/<div class="message"><span class="escaped">(.*?)<\/span><\/div>/gi)
 	{
 		$message = $1;
-		#print $message;
 		$block = "Id:".$id."uid:".$uid."\n".$message;
-		#print $block."----".$i++."----"."\n\n";
-		$sql = "INSERT INTO `movie_info`.`channel` 
-			(`title`,`block`) 
-			VALUES ('".$title."','".$block."');";
-		print $sql."--\n\n".$i++."\n\n";
-		
-		#116回までしか取得できないくさい
-		$dbh->do($sql);
 		last;
 	}
-		
+	print $thid;
+	$sql = "INSERT INTO `movie_info`.`channel` 
+	(`id`,`title`,`block`) 
+	VALUES ('".$thid."','".$title."','".$block."');";
+	#print $sql."--\n".$i++."\n\n";
+	#アスキーアートがそのまま入力するとデーターベースエラーで、
+	#アスキーアートのとき、次の繰り返しに移行（next;）
+	if($block =~/<span class="AA">(.*?)<\/span>/gi){
+	next;
+	}else{
+	$dbh->do($sql);	
+	}
 }
-#}	
-# $sql = "INSERT INTO `movie_info`.`channel` 
-# (`block`) 
-# VALUES ('".$block."');";
-# print $sql;
-$dbh->do($sql);
-
+# INSERT db名.テーブル名
 # $sql = "INSERT INTO `movie_info`.`channel` 
 # (`title`,`block`) 
 # VALUES ('".$title."','".$block."');";
 # print $sql;
 # $dbh->do($sql);
-
-# # INSERT db名.テーブル名
-# # my $sql = "INSERT INTO `movie_info`.`perl` 
-# # (`keyword`) 
-# # VALUES ('".$keyword."');";
 
 sleep(1);
 exit;#行末に全角スペースなど入ってるとUnrecognized character \x{3000};を吐いて動かなくなるので注意

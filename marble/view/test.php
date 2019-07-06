@@ -8,7 +8,7 @@ include_once "./../class/2chClass.php";
 $obj=new index();
 //var_dump($obj);
 $select_querry = $obj->select_info();
-var_dump($select_querry);
+//var_dump($select_querry);
 echo "<br>";
 foreach($select_querry as $key =>$value){
 	//$smt.="<a href="."./details.php/?id=".
