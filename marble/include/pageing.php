@@ -70,7 +70,7 @@ function pager($c,$t){
     }
     ?>
 	<?php
-	echo "<h1 style="."text-align".":"."right;".">".$current_page."/".$total_page."&nbsp&nbsp".":総件数(".$total_rec."件)"."</h1>";		
+	echo "<h1 style="."text-align".":"."center;".">".$current_page."/".$total_page."&nbsp&nbsp".":総件数(".$total_rec."件)"."</h1>";		
 	?>
     <div id="pagenation">
         <ul>

@@ -15,21 +15,15 @@
 		<!--コンテンツの中身-->
 			<?php include_once "./../class/indexClass.php";?>			
 			<?php $obj = new index(); //クラスのインスタンス作成?>
-			
-			<?php  include dirname(__FILE__) ."./../include/nav_above.php"; ?>			
+			<?php  include dirname(__FILE__) ."./../include/nav_above.php";　//タイトル画像,検索フォーム, メニューバー読み込み?>			
 			<?php $target = $_GET[target]; ?>	
-
-			<?php  include dirname(__FILE__) ."./../include/oshirase.php"; ?>			
-			
-			 
+			<?php  include dirname(__FILE__) ."./../include/oshirase.php"; //お知らせ読み込み ?>			
 			<?php include dirname(__FILE__) ."./../include/pageing.php"; //ページング読み込み ?> 
-			
 			<?php include dirname(__FILE__) ."./../include/page_select.php"; //ページング_select読み込み ?> 
+			<?php  include dirname(__FILE__) ."./../include/btn_css.php"; //ボタンのcssの読み込み ?> 
 			
-			<?php  include dirname(__FILE__) ."./../include/btn_css.php"; //ボタンのcssの読み込み ?> 	
-			
+			<!--ページング計算-->
 			<?php
-			//検索　ページング処理
 			(int)$cnt = $obj->total2($target);
 			$page = 1;
 			if (preg_match("/^[0-9]+$/", htmlspecialchars($_GET["page"]))){
@@ -39,6 +33,8 @@
 			$limit = 0;
 			$offset = ($page[0] - 1) * $limit;
 			?>
+			
+			<!--ページャー-->
 			<?php 
 			if($target == ""){
 			echo pager($page,$cnt);
@@ -50,7 +46,6 @@
 			echo "<h1 style="."text-align".":"."center;".">検索文字:".$target."</h1>";
 			}
 			?>
-			
 			<div class="fh5co-narrow-content animate-box" data-animate-effect="fadeInLeft">
 					
 					<?php
@@ -59,7 +54,7 @@
 					foreach($select_querry as $key =>$value){
 						$smt.="<div class="."col-md-3 col-sm-6 col-padding animate-box"." data-animate-effect="."fadeInLeft".">";
 							$smt.="<div class="."blog-entry".">";
-								$smt.="<a href="."./details_top.php?id="
+								$smt.="<a href="."./details.php?id="
 								.htmlspecialchars($value["id"],ENT_QUOTES,'UTF-8')." class="."blog-img".">";
 								$smt.="<img src="."images"."/"."notimage.jpg"." class="."img-responsive"." alt="."Free HTML5 Bootstrap Template by FreeHTML5.co".">";							
 								$smt.="</a>";
@@ -71,14 +66,13 @@
 									
 									$smt.="<div style="."text-align:center;".">"; //ボタンの要素を中心に寄せる
 										$smt.="<a href=".
-										"./details_top.php?id=".
+										"./details.php?id=".
 										htmlspecialchars($value["id"],ENT_QUOTES,'UTF-8')." 
 										class="."lead".">"
 										."<i class="."btn-square-shadow".">"."詳細"."</i>
 										</a>";
 									$smt.="</div>";
-									
-									
+																		
 								$smt.="</div>";	
 								
 							$smt.="</div>";
@@ -87,7 +81,26 @@
 					echo $smt;
 					?>
 			</div>
-		<!--コンテンツの中身　end-->
+			
+			<!--fotter処理 start-->
+			<div class="fh5co-narrow-content">
+				<div class="row">					
+				<!--start-->
+				<!--ページャー　下に固定-->
+				<?php 
+				if($target == ""){
+				echo pager($page,$cnt);
+				}else{
+				//検索後ページング処理　&で付加　./../include/page_select.php　に記述
+				echo pager_select($page,$cnt,$target);
+				}
+				?>
+				<!--end-->						
+				</div>
+			</div>
+			<!--fotter処理　end-->
+			
+		 <!--コンテンツの中身　end-->
 		</div>
 		
 	</div>

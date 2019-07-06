@@ -92,11 +92,11 @@
 		<div class="center">
 		<div class="nav_bar">
 			<ul>
-			  <li><a href=""><span><b>メニュー1</b></span></a></li>
-			  <li><a href=""><span><b>メニュー2</b></span></a></li>
-			  <li><a href=""><span><b>メニュー3</b></span></a></li>
-			  <li><a href=""><span><b>メニュー4</b></span></a></li>
-			  <li><a href=""><span><b>メニュー5</b></span></a></li>
+			  <li><a href=""><span><b>top</b></span></a></li>
+			  <li><a href=""><span><b>home</b></span></a></li>
+			  <li><a href=""><span><b>blog</b></span></a></li>
+			  <li><a href=""><span><b>portfolio</b></span></a></li>
+			  <li><a href=""><span><b>about</b></span></a></li>
 			 </ul>
 		</div>
 		</div>

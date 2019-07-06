@@ -11,7 +11,7 @@
 	#pagenation ul {
 		position: relative;
 		left: 50%;
-		float: left;
+		float: left; /*こいつが回り込みさせてる模様*/
 	}
 	#pagenation ul li {
 		list-style: none; /*リストマーク（・）を消す*/
@@ -71,7 +71,7 @@ function pager_select($c,$t,$target){
     }
     ?>
 	<?php
-	echo "<h1 style="."text-align".":"."center;".">現在のページ：".$current_page."/".$total_page."&nbsp&nbsp"."検索件数(".$total_rec."件)"."</h1>";		
+	echo "<h1 style="."text-align".":"."center;".">".$current_page."/".$total_page."&nbsp&nbsp"."検索件数(".$total_rec."件)"."</h1>";		
 	?>
     <div id="pagenation">
         <ul>

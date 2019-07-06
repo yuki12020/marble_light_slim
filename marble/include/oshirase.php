@@ -25,15 +25,16 @@
 </style>
 <?php include_once "./../class/indexClass.php";?>			
 <?php $obj = new index(); //クラスのインスタンス作成?>
-<div class="box_title">新着(最新15件取得)</div>
+<div class="box_title">新着（15件）</div>
 <div class="box">
 	<div class="box_srcollbar">
 		<?php 
 		$select_q = $obj->select_info();
+		//shuffle($select_q); //ランダムにする関数。最新15件ならば子の関数をかませない
 		for($i=0; $i <=15; $i++){
 		 $str .= "<small style="."color:red".";".">id".$select_q[$i]["id"]."</small>";	
 		 $str.="<a href=".
-		 "./details_top.php?id=".
+		 "./details.php?id=".
 		 htmlspecialchars($select_q[$i]["id"],ENT_QUOTES,'UTF-8').">"
 		 ."::検索文字列".$select_q[$i]["keyword"]."</a>";
 		 $str .="::件数".$select_q[$i]["kensu"];

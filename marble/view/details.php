@@ -12,7 +12,8 @@
 		</aside>
 
 		<div id="fh5co-main">
-		
+		<?php include_once "./../class/indexClass.php"; ?>
+		<?php $id = $_GET["id"];       $obj=new index();?>
 		<!--image_description_start-->
 			<div class="fh5co-narrow-content">
 				<div class="row row-bottom-padded-md">
@@ -20,9 +21,16 @@
 						<img class="img-responsive" src="images/img_bg_1.jpg" alt="Free HTML5 Bootstrap Template by FreeHTML5.co">
 					</div>
 					<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
-						<h2 class="fh5co-heading">details</h2>
-						<p>文字列A</p>
-						<p>文字列B</p>
+						<?php 
+							$select_querry = $obj->select_detail($id);
+							foreach($select_querry as $value){
+								$result.="<h2 class="."fh5co-heading".">details</h2>";
+								$result.="<h2>ID:".$value[id]."</h2>";
+								$result.="<h2>keyword:".$value[keyword]."</h2>";
+								$result.="<h2>kensu:".$value[kensu]."</h2>";
+							}
+							echo $result;						  
+						?>
 					</div>
 				</div>
 			</div>
@@ -30,62 +38,16 @@
 			
 		<!--details coloum start-->
 			<div class="fh5co-narrow-content">
-					<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">Our Services</h2>
-					<div class="row">					
-					<!--start-->
-						<div class="col-md-6">
-							<div class="fh5co-feature animate-box" data-animate-effect="fadeInLeft">
-								<div class="fh5co-icon">
-									<i class="icon-settings"></i>
-								</div>
-								<div class="fh5co-text">
-									<h3>icon-settings</h3>
-									<p>icon-settings文字列A</p>
-									<p>icon-settings文字列B</p>									
-								</div>
-							</div>
+					<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">
+					てすと
+					</h2>
+						<div class="row">					
+						<!--start-->
+						<?php echo "sssss<br>";?>
+						<?php echo "sssss";?>
+						<!--end-->						
 						</div>
-						
-						<div class="col-md-6">
-							<div class="fh5co-feature animate-box" data-animate-effect="fadeInLeft">
-								<div class="fh5co-icon">
-									<i class="icon-search4"></i>
-								</div>
-								<div class="fh5co-text">
-									<h3>icon-search4</h3>
-									<p>settings文字列A</p>
-									<p>settings文字列B</p>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-md-6">
-							<div class="fh5co-feature animate-box" data-animate-effect="fadeInLeft">
-								<div class="fh5co-icon">
-									<i class="icon-paperplane"></i>
-								</div>
-								<div class="fh5co-text">
-									<h3>icon-paperplane</h3>
-									<p>settings文字列A</p>
-									<p>settings文字列B</p>
-								</div>
-							</div>
-						</div>
-						
-						<div class="col-md-6">
-							<div class="fh5co-feature animate-box" data-animate-effect="fadeInLeft">
-								<div class="fh5co-icon">
-									<i class="icon-params"></i>
-								</div>
-								<div class="fh5co-text">
-									<h3>icon-params</h3>
-									<p>settings文字列A</p>
-									<p>settings文字列B</p>								</div>
-							</div>
-						</div>
-					<!--end-->						
-					</div>
-				</div>
+			</div>
 		<!--details colum end-->
 				
 		</div>
