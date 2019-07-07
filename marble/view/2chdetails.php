@@ -71,7 +71,9 @@
 				<?php
 				$select_querry = $obj->select_detail($page,$id);
 				foreach($select_querry as $key =>$value){
-					$smt.= "<p style="."color:red".";".">id:".$value["id"]."</p><br>";
+					//$smt.= "<p style="."color:red".";".">id:".$value["id"]."</p><br>";
+					$smt.= "<b>IDnumber:".$value["num"].":</b>";
+					$smt.= "<b style="."color:red".";".">".$value["uuid"]."</b><br>";
 					$smt.= "<b>".$value["block"]."</b><br>";
 					$smt.= "<hr>";	
 				}

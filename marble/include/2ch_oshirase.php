@@ -34,7 +34,7 @@
 		for($i=0; $i <=15; $i++){
 		 $str .= "<small style="."color:red".";".">id".$select_q[$i]["id"]."</small>";	
 		 $str.="<a href=".
-		 "./details.php?id=".
+		 "./2chdetails.php?id=".
 		 htmlspecialchars($select_q[$i]["id"],ENT_QUOTES,'UTF-8').">"
 		 ."::title".$select_q[$i]["title"]."</a>";
 		 $str .="<br>";

@@ -71,7 +71,7 @@ $res = $ua->request($req)->as_string();
 $res = Encode::decode('Shift_JIS',$res);
 
 
-my $id;
+my $num;
 my $uid;
 my $message;
 my $block;
@@ -93,19 +93,21 @@ my $i;
 #for($i=0;$i<10;$i++){}
 while($res =~/<div class="post" id="(.*?)" data-date="(.*?)" data-userid="(.*?)" data-id="(.*?)">/gi)
 {
-	$id = $1;
+	$num = $4;
 	$uid = $3;
+	print "----".$num."/n/n";
+	print $uid;
 	while($res =~/<div class="message"><span class="escaped">(.*?)<\/span><\/div>/gi)
 	{
 		$message = $1;
-		$block = "Id:".$id."uid:".$uid."\n".$message;
+		$block = $message;
 		last;
 	}
 	print $thid;
 	#channelテーブルに詳細データをインサート
 	$sql = "INSERT INTO `movie_info`.`channel` 
-	(`id`,`title`,`block`) 
-	VALUES ('".$thid."','".$title."','".$block."');";
+	(`id`,`num`,`uuid`,`title`,`block`) 
+	VALUES ('".$thid."','".$num."','".$uid."','".$title."','".$block."');";
 	#print $sql."--\n".$i++."\n\n";
 	#アスキーアートがそのまま入力するとデーターベースエラーで、
 	#アスキーアートのとき、次の繰り返しに移行（next;）

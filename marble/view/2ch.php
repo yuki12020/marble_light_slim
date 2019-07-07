@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html class="no-js">
 	<head>
-	<?php  include dirname(__FILE__) ."./../include/head.php"; ?>
+	<!--titleやデザインの読み込み-->
+	<?php include dirname(__FILE__) ."./../include/head.php"; ?>
+
 	</head>
 	<body>
 	<div id="fh5co-page">
