@@ -102,6 +102,7 @@ while($res =~/<div class="post" id="(.*?)" data-date="(.*?)" data-userid="(.*?)"
 		last;
 	}
 	print $thid;
+	#channelテーブルに詳細データをインサート
 	$sql = "INSERT INTO `movie_info`.`channel` 
 	(`id`,`title`,`block`) 
 	VALUES ('".$thid."','".$title."','".$block."');";
@@ -114,6 +115,15 @@ while($res =~/<div class="post" id="(.*?)" data-date="(.*?)" data-userid="(.*?)"
 	$dbh->do($sql);	
 	}
 }
+
+# INSERT db名.テーブル名
+$sql = "INSERT INTO `movie_info`.`channel_title_id` 
+(`id`,`title`) 
+VALUES ('".$thid."','".$title."');";
+print $sql;
+$dbh->do($sql);
+
+
 # INSERT db名.テーブル名
 # $sql = "INSERT INTO `movie_info`.`channel` 
 # (`title`,`block`) 
