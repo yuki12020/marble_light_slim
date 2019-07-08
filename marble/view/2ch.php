@@ -65,8 +65,10 @@
 						  $unique_array[] = $array_2;
 					   }
 					}
-					//var_dump($unique_array);
-
+					
+					var_dump($select_querry);
+					echo "<br>";
+					
 					foreach($unique_array as $key =>$value){
 						$smt.="<a href="."./2chdetails.php?id=".
 						htmlspecialchars($value["id"],ENT_QUOTES,'UTF-8').">".$value["title"]."</a><br>";
