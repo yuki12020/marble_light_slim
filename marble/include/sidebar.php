@@ -2,6 +2,7 @@
 	<ul>
 		<li class="fh5co-active"><a href="index.php">Top</a></li>
 		<li><a href="2ch.php">2chクローラー</a></li>
+		<li><a href="http://192.168.179.6/marble_boot/admin/slim-skeleton/public/ch2_info">ダッシュボード</a></li>	
 		<li><a href="home.php">Home</a></li>
 		<li><a href="blog.php">Blog</a></li>
 		<li><a href="portfolio.php">Portfolio</a></li>
