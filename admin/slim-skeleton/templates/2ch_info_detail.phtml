@@ -87,13 +87,7 @@
 												<td style="width:100px"  class="text-left">
 													<div style="text-align: center">
 													<form action ="" method ="post">
-														
-														<textarea name="content" rows="3" cols="50" style="vertical-align: middle" 
-														value="<?=$test['block']?>"
-														name="block">
-														<?=$test['block'] ?>
-														</textarea>
-														
+														<textarea name="content" rows="3" cols="50" style="vertical-align: middle"><?=$test['block'] ?></textarea>
 														<input type="hidden" value="<?=$test['id'] ?>" name="id_up">
 														<input type="hidden" value="<?=$test['num'] ?>" name="num_up">
 														<input type = "submit" class="btn btn-primary" value ="更新" name="up">
@@ -108,22 +102,44 @@
 													</form>
 												</td>
 												<td>
-												<?php 
+												<?php
+												//現在のページのURLえを取得
+												$url = (empty($_SERVER["HTTPS"]) ? "http://" : "https://").$_SERVER["HTTP_HOST"].$_SERVER["REQUEST_URI"];
+												var_dump($url);	
+												
 												//update ボタンが押された場合
 												(int)$id_up = $_POST["id_up"];
-												(int)$num_del =  $_POST["num_up"];
-												var_dump($_POST["block"]);
-												if($_POST["up"]){echo"true";}else{echo"else";}
-												?>
-												<?php 
+												(int)$num_up =  $_POST["num_up"];
+												$block = $_POST["content"];
+																								
 												//削除ボタンが押された時　カラムを削除する
 												(int)$id_del = $_POST["id_del"]; 
 												(int)$num_del = $_POST["num_del"];
+												
 												//空白じゃない時を実行しないと、タイトルページから詳細ページに移行する時エラー起こる
 												//なぜなら初期がnullの為である。その為エラーが起きる。
 												if(!empty($id_del) && !empty($num_del)){
+												
 												$details = $data->ch2_delete($id_del,$num_del);
-												}else{}
+												
+												//削除関数実行と共に、更新を行う
+												header('Location:'.$url.'');
+												exit();
+												
+												//更新ボタンが押された時、関数実行
+												}else if($_POST["up"]){
+													
+												$details = $data->ch2_update($id_up,$num_up,$block);
+												
+												//削除関数実行と共に、更新を行う
+												header('Location:'.$url.'');
+												exit();
+												
+												
+												}else{
+												//何もしないで終了
+												
+												}
 												?>
 												
 												
