@@ -26,6 +26,7 @@
 			<!--ページング計算-->
 			<?php
 			(int)$cnt = $obj->total2($target);
+			var_dump($cnt);
 			$page = 1;
 			if (preg_match("/^[0-9]+$/", htmlspecialchars($_GET["page"]))){
 			$_GET["page"] !== "0"?($page = (int)$_GET["page"]):$page = 1;
@@ -55,6 +56,8 @@
 					<?php
 					$obj=new keijiban_index();
 					$select_querry = $obj->select($page,$target);
+					
+					var_dump($select_querry);
 
 					//重複のidを削除
 					$tmp = [];
@@ -66,8 +69,8 @@
 					   }
 					}
 					
-					var_dump($select_querry);
-					echo "<br>";
+					//var_dump($select_querry);
+					//echo "<br>";
 					
 					foreach($unique_array as $key =>$value){
 						$smt.="<a href="."./2chdetails.php?id=".
