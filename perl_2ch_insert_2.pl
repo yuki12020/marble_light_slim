@@ -146,14 +146,18 @@ while($res =~/<div class="post" id="(.*?)" data-date="(.*?)" data-userid="(.*?)"
 		(`id`,`num`,`uuid`,`title`,`block`) 
 		VALUES ('".$thid."','".$num."','".$uid."','".$title."','"."-aaの為インサート不可-".$str."--".$i++."');";
 		print $sql;
+		#next;
 	}else{
 		$sql = "INSERT INTO `movie_info`.`channel` 
 		(`id`,`num`,`uuid`,`title`,`block`) 
 		VALUES ('".$thid."','".$num."','".$uid."','".$title."','".$block."');";
-		#next;
+		next;
 	}
 		$dbh->do($sql);
 }
+
+print $title;
+
 
 # INSERT db名.テーブル名
 $sql = "INSERT INTO `movie_info`.`channel_title_id` 

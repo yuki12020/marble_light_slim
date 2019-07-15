@@ -92,11 +92,17 @@
 		<div class="center">
 		<div class="nav_bar">
 			<ul>
+				<li class="fh5co-active"><a href="index.php">Top</a></li>
+				<li><a href="2ch.php">2chクローラー</a></li>
+				<li><a href="http://192.168.179.6/marble_boot/admin/slim-skeleton/public/ch2_info">ダッシュボード</a></li>	
+				<li><a href="blog.php">test</a></li>
+		
+			  <!--
 			  <li><a href=""><span><b>top</b></span></a></li>
 			  <li><a href=""><span><b>home</b></span></a></li>
-			  <li><a href=""><span><b>blog</b></span></a></li>
 			  <li><a href=""><span><b>portfolio</b></span></a></li>
 			  <li><a href=""><span><b>about</b></span></a></li>
+			  -->
 			 </ul>
 		</div>
 		</div>

@@ -25,5 +25,16 @@ class ch2_class extends Mapper
 	return $sql;
   }
   
+  public function ch_up_list($id,$list){
+	$sql .="UPDATE `movie_info`.`channel_title_id` ";
+	if($list===""){
+	$sql .="set `list`= null";
+	}else{
+	$sql .="SET `list`='".$list."' ";
+	}
+	$sql .=" where `id`=".$id;
+    $stmt = $this->db->query($sql);	 
+	return $sql;   
+  }
   
 }

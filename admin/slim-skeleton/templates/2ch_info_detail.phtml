@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <!--head-->
-<?php  include dirname(__FILE__) ."./../include/head.php"; ?>					
+<?php include dirname(__FILE__) ."./../include/head.php"; ?>					
 <!--head end-->		
 </head>
 <body>
@@ -12,7 +12,7 @@
 <!--sidebar end-->		
         <div class="main-panel">	
 			<!--nav　インクルード　-->
-			<?php  include dirname(__FILE__) ."./../include/nav.php"; ?>
+			<?php  //include dirname(__FILE__) ."./../include/nav.php"; ?>
 			<!--nav　インクルード　end-->
 			           <div class="content">
                 <div class="container-fluid">
@@ -82,10 +82,8 @@
 </html>
 
 <?php
-//削除、更新の関数の実行
-//現在のページのURLえを取得
+//削除、更新の関数の実行  現在のページのURLを取得
 $url = (empty($_SERVER["HTTPS"]) ? "http://" : "https://").$_SERVER["HTTP_HOST"].$_SERVER["REQUEST_URI"];
-var_dump($url);	
 
 //update ボタンが押された場合
 (int)$id_up = $_POST["id_up"];
@@ -99,24 +97,18 @@ $block = $_POST["content"];
 //空白じゃない時を実行しないと、タイトルページから詳細ページに移行する時エラー起こる
 //なぜなら初期がnullの為である。その為エラーが起きる。
 if(!empty($id_del) && !empty($num_del)){
-
-$details = $data->ch2_delete($id_del,$num_del);
-
-//削除関数実行と共に、更新を行う
-header('Location:'.$url.'');
-exit();
-
+	$details = $data->ch2_delete($id_del,$num_del);
+	//削除関数実行と共に、更新を行う
+	header('Location:'.$url.'');
+	exit();
 //更新ボタンが押された時、関数実行
-}else if($_POST["up"]){
+}else if($_POST["up"]){	
+	$details = $data->ch2_update($id_up,$num_up,$block);
 	
-$details = $data->ch2_update($id_up,$num_up,$block);
-
-//削除関数実行と共に、更新を行う
-header('Location:'.$url.'');
-exit();
-
+	//削除関数実行と共に、更新を行う
+	header('Location:'.$url.'');
+	exit();
 }else{
 //何もしないで終了
-
 }
 ?>

@@ -75,5 +75,15 @@ return function (App $app) {
 	  $response = $this->renderer->render($response, "2ch_info_detail.phtml", ["data" => $mapper]);
 	});
 	
+	//----list---------------------------------
+	$app->map(['GET', 'POST'],'/ch2_list', function ($request, $response, $args) {	  
+	  $mapper = new list_class($this->db);
+	  $response = $this->renderer->render($response, "list.phtml", ["data" => $mapper]);
+	});
+	
+	$app->map(['GET', 'POST'],'/list_detail', function ($request, $response, $args) {	  
+	  $mapper = new list_detail_class($this->db);
+	  $response = $this->renderer->render($response, "list_detail.phtml", ["data" => $mapper]);
+	});
 	
 };
